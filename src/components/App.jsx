@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { ContactForm } from './ContactForm/ContactForm';
+import { nanoid } from 'nanoid';
 
 const INITIAL_STATE = {
   contacts: [],
@@ -8,6 +9,16 @@ const INITIAL_STATE = {
 
 export class App extends Component {
   state = { ...INITIAL_STATE };
+
+  handleSubmit = evt => {
+    evt.preventDefault();
+    const form = evt.currentTarget;
+    const name = form.elements.name.value;
+    const number = form.elements.number.value;
+    const newContact = { id: nanoid(6), name: name, number: number };
+    console.log(newContact);
+    form.reset();
+  };
 
   render() {
     return (
