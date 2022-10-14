@@ -19,10 +19,18 @@ export class ContactForm extends Component {
     this.setState({ id: id });
     this.setState({ [name]: value });
   };
+  handleSubmit = evt => {
+    evt.preventDefault();
 
+    this.props.onSubmit({ ...this.state });
+    this.reset();
+  };
+
+  reset = () => {
+    this.setState({ ...INITIAL_STATE });
+  };
   render() {
     const { name, number } = this.state;
-    console.log(this.props);
     return (
       <form
         className={FormCSS.form}
