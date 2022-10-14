@@ -20,6 +20,13 @@ export class App extends Component {
     form.reset();
   };
 
+  fooDelete = contactName => {
+    const index = this.state.contacts.findIndex(
+      contact => contact.name === contactName
+    );
+    this.state.contacts.splice(index, 1);
+  };
+
   render() {
     return (
       <div

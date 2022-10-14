@@ -1,5 +1,6 @@
 import FormCSS from './ContactForm.module.css';
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 
 import { nanoid } from 'nanoid';
 
@@ -10,6 +11,8 @@ const INITIAL_STATE = {
 };
 
 export class ContactForm extends Component {
+  static propTypes = { handleSubmit: PropTypes.func.isRequired };
+
   state = { ...INITIAL_STATE };
 
   elementId = nanoid();
