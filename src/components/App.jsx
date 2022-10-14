@@ -8,6 +8,18 @@ const INITIAL_STATE = {
 export class App extends Component {
   state = { ...INITIAL_STATE };
 
+  handleSubmit = evt => {
+    evt.preventDefault();
+    // const { id, name, number } = this.state;
+
+    this.props.onSubmit({ ...this.state });
+    this.reset();
+  };
+
+  reset = () => {
+    this.setState({ ...INITIAL_STATE });
+  };
+
   render() {
     return (
       <div
