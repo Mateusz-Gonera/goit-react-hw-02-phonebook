@@ -21,7 +21,8 @@ export class ContactForm extends Component {
   };
 
   render() {
-    const { id, name, number } = this.state;
+    const { name, number } = this.state;
+    console.log(this.props);
     return (
       <form
         className={FormCSS.form}

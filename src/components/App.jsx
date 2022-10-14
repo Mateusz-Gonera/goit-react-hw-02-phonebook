@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { ContactForm } from './ContactForm/ContactForm';
 
 const INITIAL_STATE = {
   contacts: [],
@@ -35,6 +36,7 @@ export class App extends Component {
         }}
       >
         <h1>Phonebook</h1>
+        <ContactForm handleSubmit={this.handleSubmit} />
 
         <h2>Contacts</h2>
       </div>
