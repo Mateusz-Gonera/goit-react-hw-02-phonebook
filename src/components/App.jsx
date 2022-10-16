@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
-import { ContactForm } from './ContactForm/ContactForm';
 import { nanoid } from 'nanoid';
+import { ContactForm } from './ContactForm/ContactForm';
+import { ContactList } from './ContactList/ContactList';
 
 const INITIAL_STATE = {
   contacts: [],
@@ -16,6 +17,9 @@ export class App extends Component {
     const name = form.elements.name.value;
     const number = form.elements.number.value;
     const newContact = { id: nanoid(6), name: name, number: number };
+    this.setState(state =>
+      state.contacts.push({ id: nanoid(6), name: name, number: number })
+    );
     console.log(newContact);
     form.reset();
   };
@@ -24,10 +28,11 @@ export class App extends Component {
     const index = this.state.contacts.findIndex(
       contact => contact.name === contactName
     );
-    this.state.contacts.splice(index, 1);
+    this.setState(state => state.contacts.splice(index, 1));
   };
 
   render() {
+    const { contacts } = this.state;
     return (
       <div
         style={{
@@ -45,6 +50,7 @@ export class App extends Component {
         <ContactForm handleSubmit={this.handleSubmit} />
 
         <h2>Contacts</h2>
+        <ContactList contacts={contacts} onDelete={this.fooDelete} />
       </div>
     );
   }
