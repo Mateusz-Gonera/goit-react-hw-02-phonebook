@@ -24,9 +24,9 @@ export class App extends Component {
     form.reset();
   };
 
-  fooDelete = contactName => {
+  fooDelete = contactID => {
     const index = this.state.contacts.findIndex(
-      contact => contact.name === contactName
+      contact => contact.id === contactID
     );
     this.setState(state => state.contacts.splice(index, 1));
   };

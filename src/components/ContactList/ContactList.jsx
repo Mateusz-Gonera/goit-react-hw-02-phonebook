@@ -12,7 +12,7 @@ export const ContactList = ({ contacts, onDelete }) => {
           <button
             type="button"
             className={ListCSS.btn}
-            onClick={() => onDelete(contact.name)}
+            onClick={() => onDelete(contact.id)}
           >
             Delete
           </button>
