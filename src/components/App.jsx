@@ -17,12 +17,22 @@ export class App extends Component {
     const name = form.elements.name.value;
     const number = form.elements.number.value;
     this.setState(state =>
-      state.contacts.push({ id: nanoid(6), name: name, number: number })
+      state.contacts.push({
+        id: nanoid(6),
+        name: name,
+        number: number,
+      })
     );
     console.log(this.state.contacts);
-
     form.reset();
   };
+
+  // handleChange = evt => {
+  //   const { name, value } = evt.target;
+  //   this.setState(state =>
+  //     state.contacts.push({ id: nanoid(), [name]: value })
+  //   );
+  // };
 
   fooDelete = contactID => {
     const index = this.state.contacts.findIndex(
