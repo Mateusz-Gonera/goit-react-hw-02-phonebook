@@ -17,6 +17,10 @@ const INITIAL_STATE = {
 export class App extends Component {
   state = { ...INITIAL_STATE };
 
+  componentDidUpdate() {
+    // console.log(this.state.filter);
+  }
+
   handleSubmit = evt => {
     evt.preventDefault();
     const form = evt.currentTarget;
@@ -26,10 +30,6 @@ export class App extends Component {
     this.setState(({ contacts }) => ({ contacts: [...contacts, newContact] }));
     form.reset();
   };
-
-  componentDidUpdate() {
-    // console.log(this.state.filter);
-  }
 
   handleChange = evt => {
     const { name, value } = evt.target;
