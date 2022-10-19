@@ -22,9 +22,9 @@ export class App extends Component {
     form.reset();
   };
 
-  // componentDidUpdate() {
-  //   console.log(this.state.contacts);
-  // }
+  componentDidUpdate() {
+    // console.log(this.state.filter);
+  }
 
   handleChange = evt => {
     const { name, value } = evt.target;
