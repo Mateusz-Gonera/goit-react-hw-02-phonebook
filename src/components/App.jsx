@@ -21,9 +21,9 @@ export class App extends Component {
     form.reset();
   };
 
-  componentDidUpdate() {
-    console.log(this.state.contacts);
-  }
+  // componentDidUpdate() {
+  //   console.log(this.state.contacts);
+  // }
 
   // handleChange = evt => {
   //   const { name, value } = evt.target;
@@ -36,7 +36,17 @@ export class App extends Component {
     const index = this.state.contacts.findIndex(
       contact => contact.id === contactID
     );
-    this.setState(state => state.contacts.splice(index, 1));
+    const genNewElement = () => {
+      const array = this.state.contacts;
+      let newArray = [];
+      for (const element of array) {
+        if (array.indexOf(element) !== index) {
+          newArray.push(element);
+        }
+      }
+      return newArray;
+    };
+    this.setState(({ contacts }) => ({ contacts: genNewElement() }));
   };
 
   render() {
