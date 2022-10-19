@@ -3,6 +3,11 @@ import PropTypes from 'prop-types';
 import React, { Component } from 'react';
 
 export class Filter extends Component {
+  static propTypes = {
+    handleChange: PropTypes.func.isRequired,
+    value: PropTypes.string.isRequired,
+  };
+
   render() {
     return (
       <label className={FilterCSS.label}>
@@ -18,8 +23,3 @@ export class Filter extends Component {
     );
   }
 }
-
-Filter.propTypes = {
-  value: PropTypes.string.isRequired,
-  handleChange: PropTypes.func.isRequired,
-};

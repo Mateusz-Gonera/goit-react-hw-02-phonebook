@@ -1,10 +1,10 @@
 import ListCSS from './ContactList.module.css';
 import PropTypes from 'prop-types';
 
-export const ContactList = ({ contacts, onDelete }) => {
+export const ContactList = ({ onDelete, filterArray }) => {
   return (
     <ul className={ListCSS.list}>
-      {contacts.map(contact => (
+      {filterArray().map(contact => (
         <li key={contact.id} className={ListCSS.item}>
           <span className={ListCSS.paragraph}>
             {contact.name}: {contact.number}
@@ -24,5 +24,5 @@ export const ContactList = ({ contacts, onDelete }) => {
 
 ContactList.propTypes = {
   onDelete: PropTypes.func.isRequired,
-  contacts: PropTypes.array.isRequired,
+  filterArray: PropTypes.func.isRequired,
 };
