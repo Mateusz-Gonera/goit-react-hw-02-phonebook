@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { nanoid } from 'nanoid';
 import { ContactForm } from './ContactForm/ContactForm';
 import { ContactList } from './ContactList/ContactList';
+import { Filter } from './Filter/Filter';
 
 const INITIAL_STATE = {
   contacts: [],
@@ -25,12 +26,10 @@ export class App extends Component {
   //   console.log(this.state.contacts);
   // }
 
-  // handleChange = evt => {
-  //   const { name, value } = evt.target;
-  //   this.setState(state =>
-  //     state.contacts.push({ id: nanoid(), [name]: value })
-  //   );
-  // };
+  handleChange = evt => {
+    const { name, value } = evt.target;
+    this.setState({ [name]: value });
+  };
 
   fooDelete = contactID => {
     const index = this.state.contacts.findIndex(
@@ -68,6 +67,7 @@ export class App extends Component {
         <ContactForm handleSubmit={this.handleSubmit} />
 
         <h2>Contacts</h2>
+        <Filter value={this.state.filter} handleChange={this.handleChange} />
         <ContactList contacts={contacts} onDelete={this.fooDelete} />
       </div>
     );
