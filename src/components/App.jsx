@@ -16,16 +16,14 @@ export class App extends Component {
     const form = evt.currentTarget;
     const name = form.elements.name.value;
     const number = form.elements.number.value;
-    this.setState(state =>
-      state.contacts.push({
-        id: nanoid(6),
-        name: name,
-        number: number,
-      })
-    );
-    console.log(this.state.contacts);
+    const newContact = { id: nanoid(6), name: name, number: number };
+    this.setState(({ contacts }) => ({ contacts: [...contacts, newContact] }));
     form.reset();
   };
+
+  componentDidUpdate() {
+    console.log(this.state.contacts);
+  }
 
   // handleChange = evt => {
   //   const { name, value } = evt.target;
