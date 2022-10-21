@@ -77,7 +77,7 @@ export class App extends Component {
           justifyContent: 'center',
           alignItems: 'flex-start',
           flexDirection: 'column',
-          fontSize: 40,
+          fontSize: 20,
           color: '#010101',
           padding: '20px 10px',
         }}
