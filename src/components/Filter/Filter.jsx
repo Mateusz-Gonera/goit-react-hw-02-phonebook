@@ -1,4 +1,4 @@
-import FilterCSS from './Filter.module.css';
+import styles from './Filter.module.css';
 import PropTypes from 'prop-types';
 import React, { Component } from 'react';
 
@@ -10,10 +10,10 @@ export class Filter extends Component {
 
   render() {
     return (
-      <label className={FilterCSS.label}>
+      <label className={styles.label}>
         Find contacts by Name
         <input
-          className={FilterCSS.input}
+          className={styles.input}
           type="text"
           name="filter"
           value={this.props.value}

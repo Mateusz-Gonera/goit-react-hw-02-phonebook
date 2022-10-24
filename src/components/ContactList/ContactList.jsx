@@ -1,17 +1,17 @@
-import ListCSS from './ContactList.module.css';
+import styles from './ContactList.module.css';
 import PropTypes from 'prop-types';
 
 export const ContactList = ({ onDelete, filterArray }) => {
   return (
-    <ul className={ListCSS.list}>
+    <ul className={styles.list}>
       {filterArray().map(contact => (
-        <li key={contact.id} className={ListCSS.item}>
-          <span className={ListCSS.paragraph}>
+        <li key={contact.id} className={styles.item}>
+          <span className={styles.paragraph}>
             {contact.name}: {contact.number}
           </span>
           <button
             type="button"
-            className={ListCSS.btn}
+            className={styles.btn}
             onClick={() => onDelete(contact.id)}
           >
             Delete

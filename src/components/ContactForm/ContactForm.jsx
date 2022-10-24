@@ -1,4 +1,4 @@
-import FormCSS from './ContactForm.module.css';
+import styles from './ContactForm.module.css';
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 
@@ -20,15 +20,15 @@ export class ContactForm extends Component {
   render() {
     return (
       <form
-        className={FormCSS.form}
+        className={styles.form}
         htmlFor={this.elementId}
         onSubmit={this.props.handleSubmit}
       >
-        <label className={FormCSS.label}>
+        <label className={styles.label}>
           Name
           <input
             id={this.elementId}
-            className={FormCSS.input}
+            className={styles.input}
             type="text"
             name="name"
             pattern="^[a-zA-Zа-яА-Я]+(([' -][a-zA-Zа-яА-Я ])?[a-zA-Zа-яА-Я]*)*$"
@@ -36,11 +36,11 @@ export class ContactForm extends Component {
             required
           />
         </label>
-        <label className={FormCSS.label}>
+        <label className={styles.label}>
           Number
           <input
             id={this.elementId}
-            className={FormCSS.input}
+            className={styles.input}
             type="tel"
             name="number"
             pattern="\+?\d{1,4}?[-.\s]?\(?\d{1,3}?\)?[-.\s]?\d{1,4}[-.\s]?\d{1,4}[-.\s]?\d{1,9}"
@@ -49,7 +49,7 @@ export class ContactForm extends Component {
           />
         </label>
 
-        <button className={FormCSS.button} type="submit">
+        <button className={styles.button} type="submit">
           Add Contact
         </button>
       </form>
